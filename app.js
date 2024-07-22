@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000; // ใช้ค่า PORT จาก .env หรือ 3000 ถ้าไม่มี
 const MONGO_URI = process.env.MONGO_URI; // ใช้ค่า MONGO_URI จาก .env
 
+<<<<<<< HEAD
 // เชื่อมต่อกับ MongoDB โดยไม่มีการใช้ออปชั่นที่ล้าสมัย
 mongoose.connect(MONGO_URI)
     .then(() => console.log('เชื่อมต่อ MongoDB สำเร็จ'))
@@ -102,6 +103,15 @@ app.delete('/products/:id', async (req, res) => {
 
 
 
+=======
+// เชื่อมต่อกับ MongoDB
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log('เชื่อมต่อ MongoDB สำเร็จ'))
+.catch(err => console.log(err));
+>>>>>>> e0caecbccd29f099a024e6fa60f0d4d5da863ca5
 
 // เริ่มเซิร์ฟเวอร์
 app.listen(PORT, () => {
